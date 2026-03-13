@@ -19,7 +19,7 @@ st.write("Alignment with the desired image:", st.session_state.image)
 
 st.subheader("Decision 1: Brand Essence")
 
-choice = st.radio(
+choice1 = st.radio(
     "What will be your brand essence?",
     [
         "Masterfully crafted coffee",
@@ -32,7 +32,7 @@ st.success("Remember that all your decisions must reflect your essence. This is 
 
 st.subheader("Decision 2: Positioning")
 
-choice = st.radio(
+choice2 = st.radio(
     "How will you position the brand?",
     [
         "Premium artisanal coffee",
@@ -43,27 +43,40 @@ choice = st.radio(
 
 if st.button("Make decision"):
 
-    if choice == "Premium artisanal coffee":
-        st.session_state.brand_tom += 5
-        st.session_state.brand_sr -= 2
-        st.session_state.image += 7
-        st.success("Your brand is perceived as high quality!")
+    if choice1 == "Masterfully crafted coffee" & choice2 == "Premium artisanal coffee":
+        st.session_state.brand_tom += 10
+        st.session_state.brand_sr -= 10
+        st.session_state.image += 10
+        st.success("Your brand is perceived as high quality, just as you wanted!")
 
-    elif choice == "Sustainable ethical coffee":
+    elif choice1 == "Masterfully crafted coffee" & choice2 != "Premium artisanal coffee":
+        st.session_state.brand_tom += 10
+        st.session_state.brand_sr -= 10
+        st.session_state.image += 10
+        st.success("Your brand is perceived as high quality, just as you wanted!")
+   
+    elif choice1 == "Brewing to save the world" & choice2 == "Sustainable ethical coffee":
         st.session_state.brand_tom += 3
         st.session_state.brand_sr += 2
         st.session_state.image += 5
-        st.success("Consumers appreciate your ethical positioning.")
+        st.success("Consumers appreciate your ethical positioning, just as you wanted!.")
+        
+    elif choice1 == "Brewing to save the world" & choice2 != "Sustainable ethical coffee":
+        st.session_state.brand_tom += 3
+        st.session_state.brand_sr += 2
+        st.session_state.image += 5
+        st.success("Consumers appreciate your ethical positioning, just as you wanted!.")
 
-    elif choice == "Low price mass coffee":
+    elif choice1 == "Good coffee for everyone" & choice2 == "Low price mass coffee":
         st.session_state.brand_tom -= 7
         st.session_state.brand_sr += 5
         st.session_state.image += 3
-        st.success("Your brand gained volume but lost prestige.")
+        st.success("Your brand gained volume but lost prestige, just as you wanted!")
 
 st.subheader("Updated results")
 
 st.write("Brand Top-of-Mind %:", st.session_state.brand_tom)
 st.write("Brand Spontaneous recall %:", st.session_state.brand_sr)
 st.write("Alignment with the desired image:",  st.session_state.image)
+
 
