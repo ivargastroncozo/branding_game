@@ -31,7 +31,7 @@ choice2 = st.radio(
     [
         "Age – Gender",
         "Occupation status (Student, Worker, Unemployed) – Price sensitivity",
-        "Income – Ethnicity"
+        "Income – Ethnicity",
         "Age – Physical activity (times per week)"
     ]
 )
