@@ -49,16 +49,20 @@ if st.session_state.stage == 2:
     if st.button("Confirm segmentation variables"):
 
         if choice2 == "Age – Gender":
-            st.warning("Selecting two demographic variables is not a good option. It can lead to defining one segment whose members have very diverse preferences.")
+            st.session_state.feedback = "Selecting two demographic variables is not a good option. It can lead to defining one segment whose members have very diverse preferences."
+            st.session_state.feedback_type = "warning"
 
         elif choice2 == "Occupation status (Student, Worker, Unemployed) – Price sensitivity":
-            st.success("This variables are a good general option! Combining demographics with psychographics characteristics.")
+            st.session_state.feedback = "These variables are a good general option! Combining demographics with psychographic characteristics."
+            st.session_state.feedback_type = "success"
 
         elif choice2 == "Income – Ethnicity":
-            st.warning("Selecting two demographic variables is not a good option. It can lead to defining one segment whose members have very diverse preferences.")
+            st.session_state.feedback = "Selecting two demographic variables is not a good option. It can lead to defining one segment whose members have very diverse preferences."
+            st.session_state.feedback_type = "warning"
 
         elif choice2 == "Age – Physical activity (times per week)":
-            st.warning("Here you are combining demographics and behavioral variables, but is physical activity relevant for your brand?")
+            st.session_state.feedback = "You are combining demographic and behavioral variables, but is physical activity relevant for your brand?"
+            st.session_state.feedback_type = "warning"
 
         st.session_state.choice2 = choice2
         st.session_state.stage = 3
@@ -79,22 +83,28 @@ if st.session_state.stage == 3:
     if st.button("Make decision 3"):
 
         if choice1 == "Masterfully crafted coffee" and choice3 == "Premium artisanal coffee":
-            st.success("Your brand is perceived as high quality, just as you wanted!")
+            st.session_state.feedback = "Your brand is perceived as high quality, just as you wanted!"
+            st.session_state.feedback_type = "success"
 
         elif choice1 == "Masterfully crafted coffee" and choice3 != "Premium artisanal coffee":
-            st.warning("Your positioning is inconsistent with your brand essence.")
+            st.session_state.feedback = "Your positioning is inconsistent with your brand essence."
+            st.session_state.feedback_type = "warning"
 
         elif choice1 == "Brewing to save the world" and choice3 == "Sustainable ethical coffee":
-            st.success("Consumers appreciate your ethical positioning, just as you wanted!.")
+            st.session_state.feedback = "Consumers appreciate your ethical positioning, just as you wanted!"
+            st.session_state.feedback_type = "success"
 
         elif choice1 == "Brewing to save the world" and choice3 != "Sustainable ethical coffee":
-            st.warning("Your positioning is inconsistent with your brand essence.")
+            st.session_state.feedback = "Your positioning is inconsistent with your brand essence."
+            st.session_state.feedback_type = "warning"
 
         elif choice1 == "Good coffee for everyone" and choice3 == "Low price mass coffee":
-            st.success("Your brand gained volume but lost prestige, just as you wanted!")
+            st.session_state.feedback = "Your brand is perceived as accessible, just as you wanted!"
+            st.session_state.feedback_type = "success"
 
         elif choice1 == "Good coffee for everyone" and choice3 != "Low price mass coffee":
-            st.warning("Your positioning is inconsistent with your brand essence.")
+            st.session_state.feedback = "Your positioning is inconsistent with your brand essence."
+            st.session_state.feedback_type = "warning"
 
     if st.button("Restart game"):
         st.session_state.stage = 1
