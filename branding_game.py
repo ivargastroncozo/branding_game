@@ -1,5 +1,8 @@
 import streamlit as st
+if "stage" not in st.session_state:
+    st.session_state.stage = 1
 
+if st.session_state.stage == 1:
 st.title("🎮 Brand Strategy Game")
 
 # inicializar estado del juego
@@ -24,6 +27,12 @@ choice1 = st.radio(
 
 st.success("Remember that all your decisions must reflect your essence. This is your brand DNA!")
 
+if st.button("Confirm essence"):
+        st.session_state.choice1 = choice1
+        st.session_state.stage = 2
+        st.rerun()
+        
+if st.session_state.stage == 2:        
 st.subheader("Decision 2: Now you need to define your target market. First, select your segmentation variables.")
 
 choice2 = st.radio(
@@ -37,7 +46,7 @@ choice2 = st.radio(
 )
 
 
-if st.button("Make decision 2"):
+if st.button("Confirm segmentation variables"):
 
     if choice2 == "Age – Gender":
         st.warning("Selecting two demographic variables is not a good option. It can lead to defining one segment whose members have very diverse preferences.")
@@ -50,7 +59,12 @@ if st.button("Make decision 2"):
 
     elif choice2 == "Age – Physical activity (times per week)":
         st.warning("Here you are combining demographics and behavioral variables, but is physical activity relevant for your brand?")
+        
+    st.session_state.choice2 = choice2
+    st.session_state.stage = 3
+    st.rerun()
 
+if st.session_state.stage == 3:
 st.subheader("Decision 3: Positioning")
 
 choice3 = st.radio(
@@ -82,6 +96,7 @@ if st.button("Make decision 3"):
     elif choice1 == "Good coffee for everyone" and choice3 != "Low price mass coffee":
         st.warning("Your positioning is inconsistent with your brand essence.")
 
-
-
+if st.button("Restart game"):
+    st.session_state.stage = 1
+    st.rerun()
 
