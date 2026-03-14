@@ -63,7 +63,8 @@ if st.session_state.stage == 2:
         elif choice2 == "Age – Physical activity (times per week)":
             st.session_state.feedback = "You are combining demographic and behavioral variables, but is physical activity relevant for your brand?"
             st.session_state.feedback_type = "warning"
-
+    
+    if st.button("Continue to next decision"):
         st.session_state.choice2 = choice2
         st.session_state.stage = 3
         st.rerun()
