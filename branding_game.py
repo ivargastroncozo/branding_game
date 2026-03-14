@@ -39,7 +39,7 @@ choice2 = st.radio(
 
 if st.button("Make decision"):
 
-    if choice2 == "Age – Gender" and choice2 == "Premium artisanal coffee":
+    if choice2 == "Age – Gender":
         st.warning("Selecting two demographic variables is not a good option. It can lead to defining one segment whose members have very diverse preferences.")
 
     elif choice2 == "Occupation status (Student, Worker, Unemployed) – Price sensitivity":
