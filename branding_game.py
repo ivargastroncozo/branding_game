@@ -24,7 +24,7 @@ choice1 = st.radio(
 
 st.success("Remember that all your decisions must reflect your essence. This is your brand DNA!")
 
-st.subheader("Now you need to define your target market. First, select your segmentation variables.")
+st.subheader("Decision 2: Now you need to define your target market. First, select your segmentation variables.")
 
 choice2 = st.radio(
     "What will be your segmentation variables?",
@@ -37,7 +37,7 @@ choice2 = st.radio(
 )
 
 
-if st.button("Make decision"):
+if st.button("Make decision 2"):
 
     if choice2 == "Age – Gender":
         st.warning("Selecting two demographic variables is not a good option. It can lead to defining one segment whose members have very diverse preferences.")
@@ -62,7 +62,7 @@ choice3 = st.radio(
     ]
 )
 
-if st.button("Make decision"):
+if st.button("Make decision 3"):
 
     if choice1 == "Masterfully crafted coffee" and choice3 == "Premium artisanal coffee":
         st.success("Your brand is perceived as high quality, just as you wanted!")
